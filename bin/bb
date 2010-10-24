@@ -1,0 +1,52 @@
+#!/bin/bash
+#
+# vim: set ft=bash
+#
+# Basic features:
+#
+# $ bb list 
+# $ bb [-v] install <recipe>
+# $ bb remove <recipe>
+
+MAIN_DIR="`dirname ${BASH_SOURCE[0]}`/.."
+for i in `ls $MAIN_DIR/lib/*.sh`
+do
+  source $i
+done
+
+while getopts 'vh' OPTION
+do
+  case $OPTION in
+    v) 
+      version
+      ;;
+    h)
+      usage 0
+      ;;
+    ?)
+      usage 1 "Option not supported."
+      ;;
+  esac 
+done
+shift $(($OPTIND - 1))
+
+[[ $# -ne 1 && $# -ne 2 ]] && usage 1
+action=$1
+recipe=$2
+
+case $action in
+  "list")
+    bb_list $recipe
+    ;;
+  "install")
+    [ ".$recipe" == "." ] && usage 1 "I need a recipe."
+    echo "install........"
+    ;;
+  "remove")
+    [ ".$recipe" == "." ] && usage 1 "I need a recipe."
+    echo "remove........"
+    ;;
+  ?)
+    usage 1
+    ;;
+esac
