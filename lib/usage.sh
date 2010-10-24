@@ -14,6 +14,9 @@ VERSION: $VERSION
 bb (BioBrew) is a tiny and personal package manager that allows you 
 to quickly setup your toolbox in a new (and perhaps hostile) environment.
 
+bb also tries to focus on bio informatics tools (bfast, samtools, bwa, 
+picard tools, ...)  as well as crucial UNIX tools (vim, cdargs, etc ...).
+
 Usage: bb [-v] [-h] COMMAND [recipe]
 
 COMMANDS:
