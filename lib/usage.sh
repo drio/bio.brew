@@ -3,12 +3,17 @@ usage()
   e_code=$1
   e_msg=$2
 
-  if [ ".$_msg" == "." ]; then
+  if [ ".$_msg" != "." ]; then
     echo "UPS!: $e_msg"
     echo ""
   fi
 
   cat << EOF
+VERSION: $VERSION
+
+bb (BioBrew) is a tiny and personal package manager that allows you 
+to quickly setup your toolbox in a new (and perhaps hostile) environment.
+
 Usage: bb [-v] [-h] COMMAND [recipe]
 
 COMMANDS:
