@@ -1,8 +1,6 @@
 
 bb_list()
 {
-  recipe=$1
-
   n_recipes=`ls $RECIPE_DIR/ | wc -l`
   if [ $n_recipes != "0" ]
   then
