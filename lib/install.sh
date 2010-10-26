@@ -8,6 +8,17 @@ bb_install()
   source "$RECIPE_DIR/${recipe}.sh"
 }
 
+check_deps()
+{
+  list_deps=("$@")
+  for f in ${list_deps[@]} 
+  do
+    local install_flag="$LOG_DIR/$f.installed"
+    [ ! -f $install_flag ] && log "You need to install $f first." && exit 1
+  done
+  return 0 
+}
+
 check_if_installed()
 {
   local recipe_name=$1
