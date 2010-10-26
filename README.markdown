@@ -1,7 +1,6 @@
-Bio Brew
-=========
+# Bio Brew
 
-#### Introduction ####
+## Introduction
 
 Imagine you land in a hostile machine that does not have your typical use of tools or perhaps
 they are out of date. Also, you don't have root access. BB allows you to install your 
@@ -15,15 +14,13 @@ favorite tools in your home directory in a very easy way.
   + too much linux dependent
   + small number of recipes
 
-#### Install ####
+## Install
 
-<code>
   $ # Download the master branch using curl
-  $ # -L follow redirects; -s silent; -S show error message if fails; -f fail silently on server errors
-  $ curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1
-</code>
+  $ # -L follow redirects; -s silent; -S show error message if fails; -f fail silently on server errors 
+  $ curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1 
 
-#### TODO ####
+## TODO 
 
 1. Create more recipes.
   * Generic:
