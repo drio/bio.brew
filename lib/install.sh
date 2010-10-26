@@ -11,7 +11,8 @@ bb_install()
 check_if_installed()
 {
   local recipe_name=$1
-  [ -d $TB_DIR/$recipe_name ] && echo 1 || echo 0
+  #[ -d $TB_DIR/$recipe_name ] && echo 1 || echo 0
+  [ -f $LOG_DIR/$recipe_name.installed ] && echo 1 || echo 0
 }
 
 before_install()
@@ -30,9 +31,12 @@ after_install()
 {
   local recipe_name=$1
   local lock_file="$LOG_DIR/$recipe_name.lock"
+  local install_flag="$LOG_DIR/$recipe_name.installed"
   log "recipe [$recipe_name] installed."
   log "removing lock. [$lock_file]"
   rm -f $lock_file
+  log "touching install flag [$install_flag]"
+  touch $install_flag
 }
 
 configure_tool()

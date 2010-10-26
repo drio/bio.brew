@@ -43,7 +43,7 @@ case $action in
     [ ".$recipe" == "." ] && usage 1 "I need a recipe."
     bb_remove $recipe
     ;;
-  ?)
+  *)
     usage 1
     ;;
 esac

@@ -49,8 +49,12 @@ after_remove()
 {
   local recipe_name=$1
   local lock_file="$LOG_DIR/$recipe_name.lock"
+  local install_flag="$LOG_DIR/$recipe_name.installed"
+ 
   log "recipe [$recipe_name] removed."
   log "removing lock. [$lock_file]"
   rm -f $lock_file
+  log "removing install flag [$install_flag]"
+  rm -f $install_flag
 }
 

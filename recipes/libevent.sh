@@ -28,6 +28,8 @@ case $bb_action in
       #remove_from_stage $seed_name ${install_files[@]}
       after_remove $seed_name
     ;;
+  "list")
+    ;;
   *)
     log "Incorrect action. Bailing out."; exit 1
     ;;

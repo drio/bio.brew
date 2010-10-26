@@ -24,10 +24,17 @@ case $bb_action in
     fi
     ;;
   "remove")
+    if [ $(check_if_installed $seed_name) == "1" ]
+    then
       before_remove $seed_name
       remove_recipe $seed_name
       remove_from_stage $seed_name ${install_files[@]}
       after_remove $seed_name
+    else
+      log "recipe not installed."
+    fi
+    ;;
+  "list")
     ;;
   *)
     log "Incorrect action. Bailing out."; exit 1
