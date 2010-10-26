@@ -38,10 +38,12 @@ after_install()
 configure_tool()
 {
   local seed_name=$1
+  local prefix=$2
   local log_file="$LOG_DIR/${seed_name}.configure.log.txt"
 
+  [ ".$prefix" ==  "." ] && prefix=$LOCAL_DIR/$seed_name
   log "running configure [logging output: $log_file]"
-  ./configure --prefix=$LOCAL_DIR/$seed_name &> $log_file
+  ./configure --prefix=$prefix &> $log_file
 }
 
 make_tool()

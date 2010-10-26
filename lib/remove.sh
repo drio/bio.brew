@@ -23,6 +23,16 @@ remove_recipe()
   rm -rf $LOCAL_DIR/$recipe_name
 }
 
+remove_recipe_using_make()
+{
+  local recipe_name=$1
+  local log_file=$LOG_DIR/${recipe_name}.uninstall.log.txt
+  log "removing using make. log: ${log_file}"
+  cd $TB_DIR/$recipe_name
+  make uninstall &> $log_file
+  cd -
+}
+
 remove_from_stage()
 {
   local recipe_name=$1; shift
