@@ -86,7 +86,7 @@ download()
     log "$tb_file already downloaded, skipping"
   else
     log "downloading [$url]"
-    curl --silent -O $url
+    curl --silent -L -O $url
   fi 
 }
 
