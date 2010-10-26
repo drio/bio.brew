@@ -72,7 +72,11 @@ install_tool()
 {
   local log_file=$LOG_DIR/${seed_name}.install.log.txt
   log "installing tool [logging output: $log_file]"
-  make install &> log_file
+  (
+  export LIBRARY_PATH=$LOCAL_DIR/lib
+  export CPATH=$LOCAL_DIR/include
+  make &> $log_file
+  )
 }
 
 link_from_stage()
