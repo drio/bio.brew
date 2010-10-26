@@ -41,7 +41,7 @@ case $action in
     ;;
   "remove")
     [ ".$recipe" == "." ] && usage 1 "I need a recipe."
-    echo "remove........"
+    bb_remove $recipe
     ;;
   ?)
     usage 1

@@ -3,8 +3,8 @@ usage()
   e_code=$1
   e_msg=$2
 
-  if [ ".$_msg" != "." ]; then
-    echo "UPS!: $e_msg"
+  if [ ".$e_msg" != "." ]; then
+    echo "ERROR: $e_msg"
     echo ""
   fi
 
