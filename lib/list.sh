@@ -1,4 +1,3 @@
-
 bb_list()
 {
   n_recipes=`ls $RECIPE_DIR/ | wc -l`

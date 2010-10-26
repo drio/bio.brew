@@ -4,10 +4,10 @@
 set -e
 
 MAIN_DIR="$(pwd)/$(dirname $(which $0))/.."
-
-for i in `ls $MAIN_DIR/lib/*.sh`
+load_files=(common.sh install.sh list.sh remove.sh usage.sh)
+for f in ${load_files[@]}
 do
-  source $i
+  source $MAIN_DIR/lib/$f
 done
 
 while getopts 'vh' OPTION
