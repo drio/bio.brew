@@ -1,3 +1,25 @@
 
 + enable depencies
-DONE refactor the case statement to avoid DRY
++ recipes:
+  Generic:
+    DONE libevent
+    DONE cdargs
+    vim
+    DONE tmux
+    git
+    ruby  
+    perl
+    java
+
+  Bio:
+    bwa
+    bfast
+    dnaa
+    srma  
+    gatk
+    picard
+    R
+  
++ DONE refactor the case statement to avoid DRY
+
+
