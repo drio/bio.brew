@@ -16,7 +16,9 @@ favorite tools in your home directory in a very easy way.
 
 ## Install
 
+  <pre>
   curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1 
+  </pre>
 
 ## TODO 
 
