@@ -15,6 +15,14 @@ favorite tools in your home directory in a very easy way.
   + too much linux dependent
   + small number of recipes
 
+#### Install ####
+
+``
+$ # Download the master branch using curl
+$ # -L follow redirects; -s silent; -S show error message if fails; -f fail silently on server errors
+$ curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1
+``
+
 #### TODO ####
 
 1. Create more recipes.

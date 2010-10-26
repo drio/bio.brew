@@ -3,7 +3,7 @@
 # vim: set ft=bash
 set -e
 
-MAIN_DIR="$(pwd)/$(dirname $(which $0))/.."
+MAIN_DIR=$(cd “${0%/*}” 2>/dev/null; echo $PWD)
 load_files=(common.sh install.sh list.sh remove.sh usage.sh)
 for f in ${load_files[@]}
 do
