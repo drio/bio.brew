@@ -33,7 +33,7 @@ favorite tools in your home directory in a very easy way.
     + DONE git
     + DONE ruby  
     + DONE perl
-    + java
+    + DONE java
 
   * Bio:
     + bwa
