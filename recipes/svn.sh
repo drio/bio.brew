@@ -13,7 +13,7 @@ do_install()
   cd $TB_DIR
   download $URL $tb_file
   decompress_tool $tb_file $type
-  download $URL_2 $tb_file
+  download $URL_2 $tb_file_2
   decompress_tool $tb_file_2 $type
   cd $seed_name
   configure_tool $seed_name
