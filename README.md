@@ -39,7 +39,7 @@ favorite tools in your home directory in a very easy way.
     + bwa
     + bfast
     + dnaa
-    + srma  
+    + srma
     + gatk
     + picard
     + R
