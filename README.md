@@ -32,7 +32,7 @@ favorite tools in your home directory in a very easy way.
     + DONE vim
     + DONE git
     + DONE ruby  
-    + perl
+    + DONE perl
     + java
 
   * Bio:

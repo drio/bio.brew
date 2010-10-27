@@ -41,7 +41,6 @@ before_install()
 after_install()
 {
   local recipe_name=$1
-  local make_j=$2
   local lock_file="$LOG_DIR/$recipe_name.lock"
   local install_flag="$LOG_DIR/$recipe_name.installed"
   log "recipe [$recipe_name] installed."
