@@ -12,7 +12,7 @@ do_install()
   download $URL $tb_file
   decompress_tool $tb_file $type
   cd $seed_name
-  configure_tool $seed_name
+  sh Configure -de
   make_tool $seed_name $make_j
   install_tool $seed_name
   link_from_stage $seed_name ${install_files[@]}
