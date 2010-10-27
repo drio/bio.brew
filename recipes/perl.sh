@@ -3,7 +3,7 @@ local URL="http://www.cpan.org/src/5.0/perl-5.12.2.tar.gz"
 local tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
-local install_files=(bin/ruby bin/irb bin/gem bin/ri bin/rake)
+local install_files=(bin/perl)
 
 do_install()
 {
