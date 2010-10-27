@@ -27,6 +27,7 @@ COMMANDS:
 OPTIONS:
   -v: print version.
   -h: print help.
+  -j: Controls make -j parameter.
 EOF
 
   bye $e_code
