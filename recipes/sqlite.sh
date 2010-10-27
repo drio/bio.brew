@@ -1,6 +1,6 @@
 
-local URL="http://apache.securedservers.com/apr/apr-1.4.2.tar.gz"
-local tb_file=`basename $URL`
+local URL="http://www.sqlite.org/sqlite-3.7.3.tar.gz"
+lCPATHocal tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 
@@ -22,10 +22,12 @@ do_remove()
 {
   before_remove $seed_name
   #remove_from_stage $seed_name ${install_files[@]}
-  rm -f $LOCAL_DIR/bin/apr*
-  rm -f $LOCAL_DIR/lib/libapr*
-  rm -f $LOCAL_DIR/lib/apr.exp
-  rm -f $LOCAL_DIR/lib/pkgconfig/apr-1.pc
+  rm -f $LOCAL_DIR/lib/libsqlite3*
+  rm -f $LOCAL_DIR/lib/pkgconfig
+  rm -f $LOCAL_DIR/bin/sqlite3
+  rm -f $LOCAL_DIR/include/sqlite3ext.h
+  rm -f $LOCAL_DIR/include/sqlite3.h
+  rm -f $LOCAL_DIR/lib/pkgconfig/sqlite3.pc
   after_remove $seed_name
 }
 
