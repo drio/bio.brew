@@ -34,6 +34,7 @@ favorite tools in your home directory in a very easy way.
     + DONE ruby  
     + DONE perl
     + DONE java
+    + DONE svn
 
   * Bio:
     + bwa
