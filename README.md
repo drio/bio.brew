@@ -29,9 +29,9 @@ favorite tools in your home directory in a very easy way.
     + DONE libevent
     + DONE cdargs
     + DONE tmux
-    + vim
-    + git
-    + ruby  
+    + DONE vim
+    + DONE git
+    + DONE ruby  
     + perl
     + java
 
