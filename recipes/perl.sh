@@ -13,7 +13,7 @@ do_install()
   decompress_tool $tb_file $type
   cd $seed_name
   log "Configuring perl"
-  sh Configure -de -Dprefix=$LOCAL_BIN/$seed_name &> /dev/null
+  sh Configure -de -Dprefix=$LOCAL_DIR/$seed_name &> /dev/null
   make_tool $seed_name $make_j
   install_tool $seed_name
   link_from_stage $seed_name ${install_files[@]}
