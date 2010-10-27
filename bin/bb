@@ -16,6 +16,7 @@ do
   case $OPTION in
     j)
       make_j=$OPTARG
+      ;;
     v) 
       version
       ;;
