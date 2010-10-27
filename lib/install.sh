@@ -65,7 +65,7 @@ make_tool()
 {
   local seed_name=$1
   local make_j=$2
-  [ ".$make_j" == "." ] && $make_j=1
+  [ ".$make_j" == "." ] && make_j=1
   local log_file=$LOG_DIR/${seed_name}.make.log.txt
   log "running make on tool [logging output: $log_file] [j: $make_j]"
   (
