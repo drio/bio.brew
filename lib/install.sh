@@ -67,7 +67,7 @@ make_tool()
   local make_j=$2
   [ ".$make_j" == "." ] && make_j=1
   local log_file=$LOG_DIR/${seed_name}.make.log.txt
-  log "running make on tool [logging output: $log_file]"
+  log "running make on tool [logging output: $log_file] [j: $make_j]"
   (
   export LIBRARY_PATH=$LOCAL_DIR/lib
   export CPATH=$LOCAL_DIR/include
