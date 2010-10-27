@@ -41,6 +41,7 @@ before_install()
 after_install()
 {
   local recipe_name=$1
+  local make_j=$2
   local lock_file="$LOG_DIR/$recipe_name.lock"
   local install_flag="$LOG_DIR/$recipe_name.installed"
   log "recipe [$recipe_name] installed."
@@ -65,7 +66,6 @@ make_tool()
 {
   local seed_name=$1
   local make_j=$2
-  [ ".$make_j" == "." ] && make_j=1
   local log_file=$LOG_DIR/${seed_name}.make.log.txt
   log "running make on tool [logging output: $log_file] [j: $make_j]"
   (

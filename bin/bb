@@ -10,9 +10,12 @@ do
   source $MAIN_DIR/lib/$f
 done
 
-while getopts 'vh' OPTION
+make_j=1
+while getopts 'vhj:' OPTION
 do
   case $OPTION in
+    j)
+      make_j=$OPTARG
     v) 
       version
       ;;
@@ -37,7 +40,7 @@ case $action in
     ;;
   "install")
     [ ".$recipe" == "." ] && usage 1 "I need a recipe."
-    bb_install $recipe  
+    bb_install $recipe $make_j  
     ;;
   "remove")
     [ ".$recipe" == "." ] && usage 1 "I need a recipe."

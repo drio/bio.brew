@@ -12,7 +12,7 @@ do_install()
   decompress_tool $tb_file $type
   cd $seed_name
   configure_tool $seed_name
-  make_tool $seed_name 8
+  make_tool $seed_name $make_j
   install_tool $seed_name
   link_from_stage $seed_name ${install_files[@]}
   after_install $seed_name
