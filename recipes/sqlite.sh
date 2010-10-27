@@ -1,6 +1,6 @@
 
 local URL="http://www.sqlite.org/sqlite-3.7.3.tar.gz"
-lCPATHocal tb_file=`basename $URL`
+local tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 
@@ -25,9 +25,8 @@ do_remove()
   rm -f $LOCAL_DIR/lib/libsqlite3*
   rm -f $LOCAL_DIR/lib/pkgconfig
   rm -f $LOCAL_DIR/bin/sqlite3
-  rm -f $LOCAL_DIR/include/sqlite3ext.h
-  rm -f $LOCAL_DIR/include/sqlite3.h
-  rm -f $LOCAL_DIR/lib/pkgconfig/sqlite3.pc
+  rm -f $LOCAL_DIR/include/sqlite3*
+  rm -f $LOCAL_DIR/lib/pkgconfig/sqlite3*
   after_remove $seed_name
 }
 
