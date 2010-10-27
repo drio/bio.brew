@@ -19,8 +19,10 @@ do_install()
   sh $tb_file --accept-license &> $LOG_DIR/$recipe.unpack.txt
   # pwd: tarball
   cd ..
+  log "Downloading construst.sh"
   curl -sL $construct > construct.sh
-  sh ./construct.sh $recipe linux-jdk
+  sh ./construct.sh $recipe linux-jdk linux-jre
+  rm -rf linux-jre
   mv linux-jdk ../local/java
   link_from_stage $recipe ${install_files[@]}
   after_install $recipe
