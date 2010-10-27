@@ -21,8 +21,10 @@ do_install()
 do_remove()
 {
   before_remove $seed_name
-  remove_recipe_using_make $seed_name
   #remove_from_stage $seed_name ${install_files[@]}
+  rm -f $LOCAL_DIR/bin/apr*
+  rm -f $LOCAL_DIR/lib/libapr*
+  rm -f $LOCAL_DIR/lib/apr.exp
   after_remove $seed_name
 }
 
