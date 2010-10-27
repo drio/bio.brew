@@ -114,6 +114,9 @@ decompress_tool()
     "tar.gz")
       tar zxf $tb_file
     ;;
+    "tar.bz2")
+      tar jxf $tb_file
+    ;;
     ?)
       log "Problems decompressing $tb_file" 1
     ;;
