@@ -15,7 +15,7 @@ do_install()
   [ -f "download" ] && mv "download" $tb_file
   decompress_tool $tb_file $type
   cd $seed_name
-  export LIBRARY_PATH=$LOCAL_LIB/lib:$CPATH
+  export LIBRARY_PATH=$LOCAL_LIB/lib:$LIBRARY_PATH
   export CPATH=$LOCAL_LIB/include:$CPATH
   configure_tool $seed_name
   make_tool $seed_name

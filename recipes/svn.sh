@@ -3,9 +3,11 @@ local tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 local install_files=(bin/svn)
+local deps=("apr-1.4.2")
 
 do_install()
 {
+  check_deps ${deps[@]}
   before_install $seed_name
   cd $TB_DIR
   download $URL $tb_file

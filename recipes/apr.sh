@@ -25,7 +25,7 @@ do_remove()
   rm -f $LOCAL_DIR/bin/apr*
   rm -f $LOCAL_DIR/lib/libapr*
   rm -f $LOCAL_DIR/lib/apr.exp
-  after_remove $seed_name
+  rm -f $LOCAL_DIR/lib/pkgconfig/apr-1.pc
 }
 
 source "$MAIN_DIR/lib/case.sh"
