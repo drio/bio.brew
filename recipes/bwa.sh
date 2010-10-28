@@ -16,8 +16,7 @@ do_install()
   cd $seed_name
   log "autogen"
   sh ./autogen.sh &> $LOG_DIR/${seed_name}.autogen.log.txt
-  log "make"
-  make &> $LOG_DIR/${seed_name}.make.log.txt
+  make_tool $seed_name $make_j
   link_from_stage $recipe ${install_files[@]}
   after_install $recipe
 }

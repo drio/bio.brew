@@ -12,6 +12,8 @@ do_install()
   log "git cloning: $URL"
   git clone $URL &> $LOG_DIR/${seed_name}.git_clone.log.txt
   cd $seed_name
+  ln -s ../bfast
+  ln -s ../samtools
   log "autogen"
   sh ./autogen.sh &> $LOG_DIR/${seed_name}.autogen.log.txt
   configure_tool $seed_name 
