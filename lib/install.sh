@@ -8,6 +8,16 @@ bb_install()
   source "$RECIPE_DIR/${recipe}.sh"
 }
 
+clear_env()
+{
+  rm -f $LOG_DIR/$recipe.env.sh
+}
+
+for_env()
+{
+  echo $1 >> $LOG_DIR/$recipe.env.sh
+}
+
 check_deps()
 {
   list_deps=("$@")
