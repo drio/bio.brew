@@ -15,7 +15,7 @@ bb_list()
       for d in "${deps[@]}"; do s_deps="$s_deps $d"; done
       # printf "%s %-24.24s %s\n" "$installed" "$seed_name" "$s_deps"
       s_deps=`echo $s_deps | sed 's/^\s//g'`
-      printf "%s %s (%s)\n" "$installed" "$seed_name" "$s_deps"
+      printf "%s : %-24.24s : %s\n" "$installed" "$seed_name" "$s_deps"
       deps=""
     done
   else
