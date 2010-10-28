@@ -1,9 +1,9 @@
 
 local URL="git://dnaa.git.sourceforge.net/gitroot/dnaa/dnaa"
 local tb_file=`basename $URL`
-local seed_name="bfast"
-local install_files=(bfast/bfast scripts/solid2fastq scripts/ill2fastq.pl)
-local deps=(dwgsim/dwgsim dwgsim/dwgsim_eval dwgsim/dwgsim_pileup_eval.pl)
+local seed_name="dnaa"
+local deps=(samtools bfast)
+local install_files=(dwgsim/dwgsim dwgsim/dwgsim_eval dwgsim/dwgsim_pileup_eval.pl)
 
 do_install()
 {
