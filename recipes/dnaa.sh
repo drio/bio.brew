@@ -2,11 +2,12 @@
 local URL="git://dnaa.git.sourceforge.net/gitroot/dnaa/dnaa"
 local tb_file=`basename $URL`
 local seed_name="dnaa"
-local deps=(samtools bfast)
+local deps=("samtools" "bfast")
 local install_files=(dwgsim/dwgsim dwgsim/dwgsim_eval dwgsim/dwgsim_pileup_eval.pl)
 
 do_install()
 {
+  check_deps
   before_install $seed_name
   cd $LOCAL_DIR
   log "git cloning: $URL"
