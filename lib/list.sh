@@ -6,15 +6,17 @@ bb_list()
   then
     for r in `ls $RECIPE_DIR/*.sh`
     do
+      local installed="-"
       local bb_action="list"
+      local s_deps=""
       source "${r}"
 
-      if [ $(check_if_installed $seed_name) == "1" ];then 
-        echo -ne "[i] " 
-      else
-        echo -ne "[-] "
-      fi
-      echo "$seed_name"
+      [ $(check_if_installed $seed_name) == "1" ] && installed="I" || installed="-"
+      for d in "${deps[@]}"; do s_deps="$s_deps $d"; done
+      # printf "%s %-24.24s %s\n" "$installed" "$seed_name" "$s_deps"
+      s_deps=`echo $s_deps | sed 's/^\s//g'`
+      printf "%s %s (%s)\n" "$installed" "$seed_name" "$s_deps"
+      deps=""
     done
   else
     echo "No recipes found." 

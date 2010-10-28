@@ -5,10 +5,10 @@ local tb_file_2=`basename $URL_2`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 local install_files=(bin/svn)
+local deps=()
 
 do_install()
 {
-  check_deps ${deps[@]}
   before_install $seed_name
   cd $TB_DIR
   download $URL $tb_file
