@@ -16,7 +16,7 @@ do_install()
   download $URL_2 $tb_file_2
   decompress_tool $tb_file_2 $type
   cd $seed_name
-  configure_tool $seed_name
+  configure_tool $seed_name "--with-ssl"
   make_tool $seed_name $make_j
   install_tool $seed_name
   link_from_stage $seed_name ${install_files[@]}
