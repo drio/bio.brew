@@ -10,10 +10,14 @@ do_install()
   cd $LOCAL_DIR
   svn co $URL $seed_name
   cd $seed_name
-  svn $URL $seed_name 
-  mv $seed_name/trunk/bwa ./b
-  rm -rf bwa
-  mv ./b ./bwa
+  svn $URL $seed_name &> $LOG_DIR/${seed_name}.svn.log.txt
+  cd ..
+  mv $seed_name/trunk/$seed_name ../b
+  rm -rf $seed_name
+  mv ./b $seed_name
+  cd $seed_name
+  sh ./autogen.sh 
+  make 
   link_from_stage $recipe ${install_files[@]}
   after_install $recipe
 }
