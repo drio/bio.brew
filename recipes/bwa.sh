@@ -10,9 +10,7 @@ do_install()
   cd $LOCAL_DIR
   log "svn: checking out $URL"
   svn co $URL $seed_name &> $LOG_DIR/${seed_name}.svn_co.log.txt
-  cd $seed_name
-  mv $seed_name/trunk/$seed_name ../b
-  cd ..
+  mv $seed_name/trunk/$seed_name ./b
   rm -rf $seed_name
   mv ./b $seed_name
   cd $seed_name
