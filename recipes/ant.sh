@@ -9,6 +9,7 @@ local root_seed="apache-ant-${version}"
 
 do_install()
 {
+  check_deps ${deps[@]}
   before_install $seed_name
   cd $LOCAL_DIR
   download $URL $tb_file
