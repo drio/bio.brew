@@ -20,12 +20,14 @@ for_env()
 
 check_deps()
 {
-  list_deps=("$@")
+  local list_deps=("$@")
+  local not_installed=""
   for f in ${list_deps[@]} 
   do
     local install_flag="$LOG_DIR/$f.installed"
-    [ ! -f $install_flag ] && log "You need to install $f first." && exit 1
+    [ ! -f $install_flag ] && not_installed="$not_installed $f"
   done
+  [ ".$not_installed" != "." ] && log "Install deps first:$not_installed" && exit 1
   return 0 
 }
 
