@@ -37,11 +37,11 @@ favorite tools in your home directory in a very easy way.
     + DONE svn
 
   * Bio:
-    + bwa
-    + bfast
+    DONE bwa
+    DONE samtools
+    DONE bfast
     + dnaa
     + srma
     + gatk
     + picard
     + R
-    + samtools
