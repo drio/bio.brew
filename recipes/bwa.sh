@@ -8,15 +8,17 @@ do_install()
 {
   before_install $seed_name
   cd $LOCAL_DIR
+  log "svn: checking out $URL"
   svn co $URL $seed_name
   cd $seed_name
-  svn $URL $seed_name &> $LOG_DIR/${seed_name}.svn.log.txt
-  cd ..
   mv $seed_name/trunk/$seed_name ../b
+  cd ..
   rm -rf $seed_name
   mv ./b $seed_name
   cd $seed_name
+  log "autogen"
   sh ./autogen.sh 
+  log "make"
   make 
   link_from_stage $recipe ${install_files[@]}
   after_install $recipe
