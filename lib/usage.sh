@@ -9,7 +9,8 @@ usage()
   fi
 
   cat << EOF
-VERSION: $VERSION
+VERSION : $VERSION
+MAIN_DIR: $MAIN_DIR
 
 bb (BioBrew) is a tiny and personal package manager that allows you 
 to quickly setup your toolbox in a new (and perhaps hostile) environment.

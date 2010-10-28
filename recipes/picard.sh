@@ -4,6 +4,7 @@ local URL="http://sourceforge.net/projects/picard/files/picard-tools/${version}/
 local tb_file=`basename $URL`
 local seed_name="picard"
 local unzip_dir="picard-tools-${version}"
+local deps=(java)
 
 do_install()
 {
