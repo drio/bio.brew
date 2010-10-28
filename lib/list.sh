@@ -10,9 +10,9 @@ bb_list()
       source "${r}"
 
       if [ $(check_if_installed $seed_name) == "1" ];then 
-        echo -ne "i " 
+        echo -ne "[i] " 
       else
-        echo -ne "- "
+        echo -ne "[-] "
       fi
       echo "$seed_name"
     done
