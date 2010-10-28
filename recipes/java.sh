@@ -25,6 +25,8 @@ do_install()
   rm -rf linux-jre
   mv linux-jdk ../local/java
   link_from_stage $recipe ${install_files[@]}
+  clear_env
+  for_env " export JAVA_HOME='$LOCAL_DIR/$root_seed' "
   after_install $recipe
 }
 
