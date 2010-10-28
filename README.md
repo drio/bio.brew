@@ -40,8 +40,8 @@ favorite tools in your home directory in a very easy way.
     DONE bwa
     DONE samtools
     DONE bfast
-    + dnaa
+    DONE dnaa
+    DONE R
     + srma
     + gatk
     + picard
-    + R
