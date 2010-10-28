@@ -93,6 +93,7 @@ link_from_stage()
     log "linking from staging area [$f]"
     rm -f $LOCAL_DIR/bin/$bn
     ln -s $LOCAL_DIR/$seed_name/$f $LOCAL_DIR/bin/$bn
+    chmod 755 $LOCAL_DIR/$seed_name/$f
   done
 }
 

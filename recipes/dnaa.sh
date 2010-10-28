@@ -7,7 +7,7 @@ local install_files=(dwgsim/dwgsim dwgsim/dwgsim_eval dwgsim/dwgsim_pileup_eval.
 
 do_install()
 {
-  check_deps
+  check_deps ${deps[@]}
   before_install $seed_name
   cd $LOCAL_DIR
   log "git cloning: $URL"
