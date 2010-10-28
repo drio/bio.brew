@@ -42,6 +42,6 @@ favorite tools in your home directory in a very easy way.
     DONE bfast
     DONE dnaa
     DONE R
+    DONE gatk
+    DONE picard
     + srma
-    + gatk
-    + picard

@@ -42,3 +42,22 @@ extract_tool_name()
   echo `echo $tb_file | sed "s/.$type//g"`
 }
 
+# Thanks: http://stackoverflow.com/questions/1055671/how-can-i-get-the-behavior-of-gnus-readlink-f-on-a-mac 
+find_dist_path()
+{
+  local target_file=$1
+  cd `dirname $target_file`
+  cd ..
+  target_file=`basename $target_file`
+
+  # Iterate down a (possible) chain of symlinks
+  while [ -L "$target_file" ]
+  do
+      target_file=`readlink $target_file`
+      cd `dirname $target_file`
+      target_file=`basename $target_file`
+  done
+
+  result=`pwd -P`/$target_file
+  echo $result
+}

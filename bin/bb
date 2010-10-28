@@ -3,12 +3,28 @@
 # vim: set ft=bash
 set -e
 
-MAIN_DIR=$(cd “${0%/*}” 2>/dev/null; echo $PWD)
+find_dist_path()
+{
+  local target_file=$1
+  cd `dirname $target_file`
+  cd ..
+  target_file=`basename $target_file`
+
+  # Iterate down a (possible) chain of symlinks
+  while [ -L "$target_file" ]
+  do
+    target_file=`readlink $target_file`
+    cd `dirname $target_file`
+    target_file=`basename $target_file`
+  done
+
+  result=`pwd -P`
+  echo $result
+}
+
+MAIN_DIR=$(find_dist_path ${BASH_SOURCE[0]})
 load_files=(common.sh install.sh list.sh remove.sh usage.sh)
-for f in ${load_files[@]}
-do
-  source $MAIN_DIR/lib/$f
-done
+for f in ${load_files[@]}; do source $MAIN_DIR/lib/$f; done
 
 make_j=1
 while getopts 'vhj:' OPTION
