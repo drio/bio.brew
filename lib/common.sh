@@ -6,6 +6,7 @@ TB_DIR="$MAIN_DIR/tarballs"
 LOG_DIR="$MAIN_DIR/logs"
 BIN_DIR="$LOCAL_DIR/bin"
 SHARE_DIR="$LOCAL_DIR/share"
+CONTRIB_DIR="$LOCAL_DIR/contrib"
 
 version()
 {

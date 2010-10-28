@@ -46,6 +46,7 @@ before_install()
   mkdir -p $LOG_DIR
   mkdir -p $BIN_DIR
   mkdir -p $SHARE_DIR
+  mkdir -p $CONTRIB_DIR
   [ -f $LOG_DIR/$recipe_name.lock ] && usage 1 "Other instance is working on $recipe_name. Bailing out."
   touch $LOG_DIR/$recipe_name.lock
 }
@@ -105,7 +106,7 @@ link_from_stage()
     log "linking from staging area [$f]"
     rm -f $LOCAL_DIR/bin/$bn
     ln -s $LOCAL_DIR/$seed_name/$f $LOCAL_DIR/bin/$bn
-    chmod 755 $LOCAL_DIR/$seed_name/$f
+    [ -f $LOCAL_DIR/$seed_name/$f ] && chmod 755 $LOCAL_DIR/$seed_name/$f
   done
 }
 

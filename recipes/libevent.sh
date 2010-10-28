@@ -11,7 +11,7 @@ do_install()
   download $URL $tb_file
   decompress_tool $tb_file $type
   cd $seed_name
-  configure_tool $seed_name $LOCAL_DIR
+  configure_tool $seed_name "" $LOCAL_DIR
   make_tool $seed_name
   install_tool $seed_name
   #link_from_stage $seed_name ${install_files[@]}
