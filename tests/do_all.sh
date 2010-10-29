@@ -2,20 +2,22 @@
 #
 
 start=`date`
-cd /tmp/tmp
-rm -rf * 
-curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1 
+bb_dir=`../bin/bb | grep MAIN | awk '{print $2}'`
+bb=$bb_dir/bin/bb
+cd $bb_dir
+#rm -rf *
+#curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1 
 
 for i in java samtools bfast ant picard libevent
 do
-  bb -j8 install $i
+  $bb -j8 install $i
 done
 
-bb install svn
+$bb install svn
 
 for i in bwa cdargs dnaa gatk git perl r ruby srma tmux vim
 do
-  bb -j8 install $i
+  $bb -j8 install $i
 done
 
 finish=`date`
