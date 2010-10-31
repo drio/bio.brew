@@ -13,8 +13,6 @@ bb_list()
 
       [ $(check_if_installed $seed_name) == "1" ] && installed="I" || installed="-"
       for d in "${deps[@]}"; do s_deps="$s_deps $d"; done
-      # printf "%s %-24.24s %s\n" "$installed" "$seed_name" "$s_deps"
-      s_deps=`echo $s_deps | sed 's/^\s//g'`
       printf "%s : %-24.24s : %s\n" "$installed" "$seed_name" "$s_deps"
       deps=""
     done

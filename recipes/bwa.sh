@@ -3,9 +3,11 @@ local URL="https://bio-bwa.svn.sourceforge.net/svnroot/bio-bwa"
 local tb_file=`basename $URL`
 local seed_name="bwa"
 local install_files=(bwa solid2fastq.pl)
+local deps=("svn")
 
 do_install()
 {
+  check_deps ${deps[@]}
   before_install $seed_name
   cd $LOCAL_DIR
   log "svn: checking out $URL"

@@ -3,9 +3,11 @@ local URL="https://samtools.svn.sourceforge.net/svnroot/samtools"
 local tb_file=`basename $URL`
 local seed_name="samtools"
 local install_files=(samtools)
+local deps=("svn")
 
 do_install()
 {
+  check_deps ${deps[@]}
   before_install $seed_name
   cd $LOCAL_DIR
   log "svn: checking out $URL"
