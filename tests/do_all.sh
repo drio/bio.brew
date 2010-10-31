@@ -26,6 +26,6 @@ echo " "
 echo "start: $start"
 echo "end  : $finish"
 echo "size : `du -hs .`"
-echo "# recipes installed : $(bb list | grep "^I" | wc -l)"
+echo "# recipes installed : $($bb list | grep "^I" | wc -l)"
 echo "# recipes           : $(ls recipes/*.sh | wc -l)"
 
