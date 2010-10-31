@@ -8,15 +8,12 @@ you can ask the sysadmins to install that for you. That may work. You may also i
 the tools yourself. 
 
 BB (biobrew) helps you either way. With a simple oneliner you can have most of your
-tools ready to use. 
-
-BB is a tiny package manager based entirely in bash. It makes the extension of recipes
-(package definitions) very easy. 
+tools ready to use.  BB is a tiny package manager based entirely in bash. It makes the 
+extension of recipes (package definitions) very easy. 
 
 BB currently works in Linux enviroments (it should work just fine in other flavours of 
-Unix). It only needs a typical Linux enviroment with gcc and curl.
-
-Besides my classic and inseparable unix tools bb comes with some bioinformatics gems.
+Unix). It only needs a typical Linux enviroment with gcc and curl. Besides my classic 
+and inseparable unix tools bb comes with some bioinformatics gems.  
 
 Give it a try and make it better by improving the framework and adding more recipes.
 
@@ -58,7 +55,6 @@ $ ./bin/bb list
 
 As you can see, I don't have any installed ('-'). I can now install something:
 
-``
 <pre>
 $ ./bin/bb -j8 install svn
 Sun Oct 31 11:19:38 CDT 2010 >> Installing recipe: svn
@@ -78,7 +74,6 @@ Sun Oct 31 11:23:16 CDT 2010 >> touching install flag [/data/rogers/drio_scratch
 $ ls -acl ./local/bin/svn
 ./local/bin/svn
 </pre>
-``
 
 You just need to extend your PATH variable to make it look in ./local/bin.
 
