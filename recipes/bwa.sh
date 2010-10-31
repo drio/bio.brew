@@ -3,7 +3,7 @@ local URL="https://bio-bwa.svn.sourceforge.net/svnroot/bio-bwa"
 local tb_file=`basename $URL`
 local seed_name="bwa"
 local install_files=(bwa solid2fastq.pl)
-local deps=("svn")
+local deps=("subversion-1.6.13")
 
 do_install()
 {
