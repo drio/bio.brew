@@ -13,7 +13,7 @@ do_install()
   cd $seed_name
   cp protoMakefile Makefile
   make_tool $seed_name $make_j
-  link_from_stage $seed_name ${install_files[@]}
+  cp ${install_files[0]} $LOCAL_DIR/bin 
   after_install $seed_name
 }
 
