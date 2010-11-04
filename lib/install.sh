@@ -106,8 +106,10 @@ link_from_stage()
     log "linking from staging area [$f]"
     rm -f $LOCAL_DIR/bin/$bn
     ln -s $LOCAL_DIR/$seed_name/$f $LOCAL_DIR/bin/$bn
+    log "Setting permission"
     [ -f $LOCAL_DIR/$seed_name/$f ] && chmod 755 $LOCAL_DIR/$seed_name/$f
   done
+  return 0
 }
 
 download()
