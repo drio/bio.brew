@@ -1,5 +1,5 @@
 
-BB_PATH=${BASH_SOURCE[0]}
+BB_PATH=`dirname ${BASH_SOURCE[0]}`
 export PATH="$BB_PATH/bin:$PATH"
 export PATH="$BB_PATH/local/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BB_PATH/local/lib"
