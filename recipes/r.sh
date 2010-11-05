@@ -2,7 +2,7 @@ local URL="http://cran.stat.ucla.edu/src/base/R-2/R-2.12.0.tar.gz"
 local tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
-local install_files=(bin/R)
+local install_files=(bin/R bin/Rscript)
 
 do_install()
 {
