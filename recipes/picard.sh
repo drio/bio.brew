@@ -16,6 +16,7 @@ do_install()
   unzip ${unzip_dir}.zip &> $LOG_DIR/${seed_name}.unzip.log.txt
   rm -f *.zip
   mv $unzip_dir $seed_name
+  for_env "export PICARD='$LOCAL_DIR/picard'"
   after_install $recipe
 }
 
