@@ -1,5 +1,7 @@
 
-BB_PATH="/data/rogers/drio_scratch/bb"
+BB_PATH=${BASH_SOURCE[0]}
+echo $BB_PATH
+return
 export PATH="$BB_PATH/bin:$PATH"
 export PATH="$BB_PATH/local/bin:$PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BB_PATH/local/lib"
