@@ -23,9 +23,23 @@ $ # Download the master branch using curl
 $ # -L follow redirects; -s silent; -S show error message if fails; -f fail silently on server errors
 $ curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1
 
+You probably want to add ./load_env in your shell's configuration file. If you use bash add
+this to your .bashrc:
+
+source /data/rogers/drio_scratch/bb/load_env    
+
+That will set the proper path(s). Take a quick peek to load_env, it is a very small script.
+
 At that point you can use ./bin/bb to list, install or remove recipes. You can also run the 
 ``tests/do_all.sh`` script to install all the recipes. That may take some time (20 minutes 
 in a fairly powerful machine with 8 cores and using bb -j8 install).
+
+Once installed the binaries will be in your path so you can just call them. Keep in mind 
+some recipes (packages) do not generate binary files, for those cases, bb creates special
+scripts (log/*.sh) and the necessary ENV vars are created. For example, picard is a bunch
+of jars that cannot be executed directly. By loading the recipe's enviroment you will 
+have a ENV variable called PICARD that points to the jars. It is then very easy to 
+use the jars as necessary.
 
 Here is a list of the recipes available:
 
@@ -68,8 +82,6 @@ Sun Oct 31 11:23:16 CDT 2010 >> touching install flag [/data/rogers/drio_scratch
 
 $ ls -acl ./local/bin/svn
 ./local/bin/svn
-
-You just need to extend your PATH variable to make it look in ./local/bin.
 
 ## TODO
 
