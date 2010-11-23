@@ -142,3 +142,79 @@ decompress_tool()
     ;;
   esac
 }
+
+cpan_remove()
+{
+  local p_module=$1
+  local log_file=$LOG_DIR/${seed_name}.cpan.uninstall.log.txt
+  log "Removing CPAN module: ${p_module}"
+  (echo "u $p_module") | cpan &> $log_file
+}
+
+cpan_install()
+{
+  local p_module=$1
+  local log_file=$LOG_DIR/${seed_name}.cpan.install.log.txt
+  log "Installing CPAN module: ${p_module}"
+  (echo "install $p_module") | cpan &> $log_file
+}
+
+setup_cpan_policy()
+{
+  log "Setting up CPAN policy to follow."
+  local log_file=$LOG_DIR/cpan.policy.log.txt
+  (echo y; echo o conf prerequisites_policy follow;echo o conf commit) | cpan &> $log_file
+}
+
+setup_cpan_config()
+{
+  cp_dir="$HOME/.cpan/CPAN"
+  cp_config="$cp_dir/MyConfig.pm"
+
+  setup_cpan_policy
+  if [ -f $cp_config ] 
+  then
+    log "Cannot setup CPAN config. Already exists"  
+  else
+    log "Setting up CPAN config."
+    mkdir -p $cp_dir
+    ( 
+    cat<<-EOF
+\$CPAN::Config = {
+  'auto_commit' => q[0],
+  'build_cache' => q[100],
+  'build_dir' => q[${HOME}/.cpan/build],
+  'cache_metadata' => q[1],
+  'commandnumber_in_prompt' => q[1],
+  'connect_to_internet_ok' => q[1],
+  'cpan_home' => q[${HOME}/.cpan],
+  'ftp_passive' => q[1],
+  'ftp_proxy' => q[],
+  'http_proxy' => q[],
+  'inactivity_timeout' => q[0],
+  'index_expire' => q[1],
+  'inhibit_startup_message' => q[0],
+  'keep_source_where' => q[${HOME}/.cpan/sources],
+  'load_module_verbosity' => undef,
+  'make_arg' => q[],
+  'make_install_arg' => q[],
+  'make_install_make_command' => q[],
+  'makepl_arg' => q[],
+  'mbuild_arg' => q[],
+  'mbuild_install_arg' => q[],
+  'mbuild_install_build_command' => q[./Build],
+  'mbuildpl_arg' => q[],
+  'no_proxy' => q[],
+  'prerequisites_policy' => q[follow],
+  'scan_cache' => q[atstart],
+  'show_upload_date' => q[0],
+  'term_ornaments' => q[1],
+  'urllist' => [q[ftp://cpan.pair.com/pub/CPAN/], q[ftp://cpan.netnitco.net/pub/mirrors/CPAN/], q[ftp://cpan.mirrors.tds.net/pub/CPAN], q[ftp://cpan.llarian.net/pub/CPAN/]],
+  'use_sqlite' => q[0],
+};
+1;
+__END__
+EOF
+    ) > $cp_config
+  fi
+}

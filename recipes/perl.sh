@@ -3,7 +3,7 @@ local URL="http://www.cpan.org/src/5.0/perl-5.12.2.tar.gz"
 local tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
-local install_files=(bin/perl)
+local install_files=(bin/perl bin/cpan)
 
 do_install()
 {
@@ -17,6 +17,7 @@ do_install()
   make_tool $seed_name $make_j
   install_tool $seed_name
   link_from_stage $seed_name ${install_files[@]}
+  setup_cpan_config
   after_install $seed_name
 }
 
