@@ -156,7 +156,7 @@ cpan_install()
   local p_module=$1
   local log_file=$LOG_DIR/${seed_name}.cpan.install.log.txt
   log "Installing CPAN module: ${p_module}"
-  (echo "install $p_module") | cpan &> $log_file
+  (echo "force install $p_module") | cpan &> $log_file
 }
 
 setup_cpan_policy()
