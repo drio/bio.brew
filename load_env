@@ -1,3 +1,5 @@
+#!/bin/bash
+#
 
 BB_PATH=`dirname ${BASH_SOURCE[0]}`
 export PATH="$BB_PATH/bin:$PATH"
@@ -6,7 +8,7 @@ export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$BB_PATH/local/lib"
 
 BB_LOGS_DIR="`bb | grep MAIN | awk -F: '{print $2}'`/logs"
 
-if [ `ls $BB_LOGS_DIR/*.sh | wc -l` != "0" ]
+if [ `ls $BB_LOGS_DIR/*.sh 2>/dev/null | wc -l` != "0" ]
 then
   for s in $BB_LOGS_DIR/*.sh
   do
