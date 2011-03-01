@@ -41,7 +41,8 @@ of jars that cannot be executed directly. By loading the recipe's enviroment you
 have a ENV variable called PICARD that points to the jars. It is then very easy to 
 use the jars as necessary.
 
-Here is a list of the recipes available:
+Here is a list of the recipes available (This is an old version, there are more 
+packages now):
 
 $ ./bin/bb list
 - : ant                      :  java

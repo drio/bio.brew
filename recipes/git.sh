@@ -2,7 +2,7 @@ local URL="http://kernel.org/pub/software/scm/git/git-1.7.3.2.tar.bz2"
 local tb_file=`basename $URL`
 local type="tar.bz2"
 local seed_name=$(extract_tool_name $tb_file $type)
-local install_files=(bin/git)
+local install_files=(bin/git bin/git-upload-pack)
 
 do_install()
 {
