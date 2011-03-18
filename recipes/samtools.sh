@@ -2,7 +2,7 @@
 local URL="https://samtools.svn.sourceforge.net/svnroot/samtools"
 local tb_file=`basename $URL`
 local seed_name="samtools"
-local install_files=(samtools misc/samtools.pl)
+local install_files=(samtools misc/samtools.pl bcftools/bcftools bcftools/vcfutils.pl)
 local deps=("subversion-1.6.13")
 
 do_install()

@@ -14,6 +14,7 @@ do_install()
   decompress_tool $tb_file $tb_type
   rm -f $tb_file
   mv GenomeAnalysisTK* ../local/gatk
+  for_env "export GATK='$LOCAL_DIR/gatk'"
   after_install $recipe
 }
 

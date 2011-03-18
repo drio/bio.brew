@@ -1,5 +1,5 @@
 
-local version="1.36"
+local version="1.40"
 local URL="http://sourceforge.net/projects/picard/files/picard-tools/${version}/picard-tools-${version}.zip/download"
 local tb_file=`basename $URL`
 local seed_name="picard"
