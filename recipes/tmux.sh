@@ -1,6 +1,6 @@
 
-local URL="http://sourceforge.net/projects/tmux/files/tmux/tmux-1.3/tmux-1.3.tar.gz/download"
-local tb_file="tmux-1.3.tar.gz"
+local URL="http://sourceforge.net/projects/tmux/files/tmux/tmux-1.4/tmux-1.4.tar.gz/download"
+local tb_file="tmux-1.4.tar.gz"
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 #local install_files=(bin/dargs contrib/cdargs-bash.sh)
