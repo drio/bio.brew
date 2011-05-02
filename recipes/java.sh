@@ -1,6 +1,6 @@
 
 # This recipe is special, please read: https://jdk-distros.dev.java.net/developer.html
-local URL="http://download.java.net/dlj/binaries/jdk-6u24-dlj-linux-amd64.bin"
+local URL="http://download.oracle.com/otn-pub/java/jdk/6u25-b06/jdk-6u25-linux-x64.bin"
 #local URL="http://download.java.net/dlj/binaries/jdk-6u24-dlj-linux-i586.bin"
 local construct='https://jdk-distros.dev.java.net/source/browse/*checkout*/jdk-distros/trunk/utils/construct.sh?content-type=text%2Fplain'
 local tb_file=`basename $URL`
@@ -18,7 +18,7 @@ do_install()
   # pwd: tarball/java
   cd $recipe
   log "Untaring jdk"
-  sh $tb_file --accept-license &> $LOG_DIR/$recipe.unpack.txt
+  echo | sh $tb_file &> $LOG_DIR/$recipe.unpack.txt
   cd ..
   # pwd: tarball
   log "Moving to local"
