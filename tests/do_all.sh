@@ -8,14 +8,14 @@ cd $bb_dir
 #rm -rf *
 #curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1 
 
-for i in java samtools bfast ant picard libevent
+for i in java bfast ant picard libevent
 do
   $bb -j8 install $i
 done
 
 $bb install svn
 
-for i in bwa cdargs dnaa gatk git perl r ruby srma tmux vim
+for i in samtools bwa cdargs dnaa gatk git perl r ruby tmux vim #srma
 do
   $bb -j8 install $i
 done

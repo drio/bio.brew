@@ -1,24 +1,22 @@
-
-local URL="https://samtools.svn.sourceforge.net/svnroot/samtools"
+local version="0.1.16"
+local URL="https://sourceforge.net/projects/samtools/files/samtools/0.1.16/samtools-${version}.tar.bz2"
 local tb_file=`basename $URL`
-local seed_name="samtools"
+local type="tar.bz2"
+local seed_name="samtools-${version}"
 local install_files=(samtools misc/samtools.pl bcftools/bcftools bcftools/vcfutils.pl)
-local deps=("subversion-1.6.13")
 
 do_install()
 {
-  check_deps ${deps[@]}
   before_install $seed_name
-  cd $LOCAL_DIR
-  log "svn: checking out $URL"
-  svn co $URL $seed_name &> $LOG_DIR/${seed_name}.svn_co.log.txt
-  mv $seed_name/trunk/$seed_name ./s
-  rm -rf $seed_name
-  mv ./s $seed_name
+  cd $TB_DIR
+  download $URL $tb_file
+  decompress_tool $tb_file $type
   cd $seed_name
   make_tool $seed_name $make_j
-  link_from_stage $recipe ${install_files[@]}
-  after_install $recipe
+  cd ..
+  mv $seed_name $LOCAL_DIR
+  link_from_stage $seed_name ${install_files[@]}
+  after_install $seed_name
 }
 
 do_remove()
