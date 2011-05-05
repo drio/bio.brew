@@ -16,6 +16,7 @@ do_install()
   cd ..
   mv $seed_name $LOCAL_DIR
   link_from_stage $seed_name ${install_files[@]}
+  for_env "export SAMTOOLS_DIR='$LOCAL_DIR/$seed_name'"
   after_install $seed_name
 }
 
