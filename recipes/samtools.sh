@@ -1,5 +1,5 @@
 local version="0.1.16"
-local URL="https://sourceforge.net/projects/samtools/files/samtools/0.1.16/samtools-${version}.tar.bz2"
+local URL="https://sourceforge.net/projects/samtools/files/samtools/${version}/samtools-${version}.tar.bz2"
 local tb_file=`basename $URL`
 local type="tar.bz2"
 local seed_name="samtools-${version}"
