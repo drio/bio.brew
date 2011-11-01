@@ -3,13 +3,15 @@ local URL="http://bedtools.googlecode.com/files/BEDTools.v${version}.tar.gz"
 local tb_file=`basename $URL`
 local type="tar.gz"
 local seed_name="BEDTools-Version-${version}"
-local install_files=(bin/coverageBed bin/slopBed bin/linksBed 
-bin/mergeBed bin/bed12ToBed6 bin/closestBed bin/complementBed 
-bin/overlap bin/annotateBed bin/subtractBed bin/maskFastaFromBed 
-bin/windowBed bin/sortBed bin/unionBedGraphs bin/genomeCoverageBed 
-bin/pairToPair bin/fastaFromBed bin/bedToBam bin/pairToBed 
-bin/flankBed bin/bedToIgv bin/intersectBed bin/shuffleBed 
-bin/fjoin bin/cuffToTrans bin/bamToBed)
+local install_files=(bin/annotateBed bin/cuffToTrans         bin/genomeCoverageBed   
+bin/mergeBed            bin/shuffleBed          bin/unionBedGraphs
+bin/bamToBed            bin/closestBed          bin/fastaFromBed        
+bin/intersectBed        bin/overlap             bin/slopBed             
+bin/windowBed           bin/bed12ToBed6         bin/complementBed       
+bin/fjoin               bin/linksBed            bin/pairToBed           
+bin/sortBed             bin/bedToBam            bin/coverageBed         
+bin/flankBed            bin/maskFastaFromBed    bin/pairToPair          
+bin/subtractBed         bin/bedToIgv)
 
 do_install()
 {
