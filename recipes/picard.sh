@@ -1,6 +1,7 @@
 
-local version="1.40"
-local URL="http://sourceforge.net/projects/picard/files/picard-tools/${version}/picard-tools-${version}.zip/download"
+local version="1.55"
+# Can anyone tell me how to programmatically download tarballs from sourceforge ?
+local URL="http://downloads.sourceforge.net/project/picard/picard-tools/${version}/picard-tools-${version}.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fpicard%2Ffiles%2Fpicard-tools%2F${version}%2Fpicard-tools-${version}.zip%2Fdownload&ts=1320169333&use_mirror=cdnetworks-us-2"
 local tb_file=`basename $URL`
 local seed_name="picard"
 local unzip_dir="picard-tools-${version}"
@@ -10,9 +11,9 @@ do_install()
 {
   before_install $seed_name
   cd $LOCAL_DIR
-  log "Downloading"
+  log "Downloading: ${URL}"
   curl -sL $URL > ${unzip_dir}.zip
-  log "Unzipping"
+  log "Unzipping: ${unzip_dir}.zip"
   unzip ${unzip_dir}.zip &> $LOG_DIR/${seed_name}.unzip.log.txt
   rm -f *.zip
   mv $unzip_dir $seed_name

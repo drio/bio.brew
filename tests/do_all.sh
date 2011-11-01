@@ -10,14 +10,14 @@ cd $bb_dir
 
 for i in java bfast ant picard libevent
 do
-  $bb -j8 install $i
+  $bb -j3 install $i
 done
 
 $bb install svn
 
 for i in samtools bwa cdargs dnaa gatk git perl r ruby tmux vim #srma
 do
-  $bb -j8 install $i
+  $bb -j3 install $i
 done
 
 finish=`date`

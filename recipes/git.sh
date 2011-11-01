@@ -1,6 +1,6 @@
-local URL="http://kernel.org/pub/software/scm/git/git-1.7.3.2.tar.bz2"
+local URL="http://git-core.googlecode.com/files/git-1.7.7.1.tar.gz"
 local tb_file=`basename $URL`
-local type="tar.bz2"
+local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 local install_files=(bin/git bin/git-upload-pack)
 

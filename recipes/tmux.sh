@@ -1,6 +1,5 @@
-
-local URL="http://sourceforge.net/projects/tmux/files/tmux/tmux-1.4/tmux-1.4.tar.gz/download"
-local tb_file="tmux-1.4.tar.gz"
+local URL="http://downloads.sourceforge.net/tmux/tmux-1.5.tar.gz"
+local tb_file="tmux-1.5.tar.gz"
 local type="tar.gz"
 local seed_name=$(extract_tool_name $tb_file $type)
 #local install_files=(bin/dargs contrib/cdargs-bash.sh)
@@ -15,8 +14,9 @@ do_install()
   [ -f "download" ] && mv "download" $tb_file
   decompress_tool $tb_file $type
   cd $seed_name
-  export LIBRARY_PATH=$LOCAL_LIB/lib:$LIBRARY_PATH
+  export LIBRARY_PATH=$LOCAL_DIR/lib:$LIBRARY_PATH
   export CPATH=$LOCAL_LIB/include:$CPATH
+  log "LOCAL_LIB: $LIBRARY_PATH"
   configure_tool $seed_name
   make_tool $seed_name
   ln -s $TB_DIR/$seed_name/tmux $LOCAL_DIR/bin
