@@ -1,7 +1,7 @@
-local URL="http://github.com/lh3/bwa.git"
-local seed_name="bwa"
+local URL="http://github.com/dzerbino/velvet.git"
+local seed_name="velvet"
 local deps=()
-local install_files=(bwa)
+local install_files=(velveth velvetg)
 
 do_install()
 {
@@ -12,7 +12,8 @@ do_install()
   git clone $URL &> $LOG_DIR/${seed_name}.git_clone.log.txt
   cd $seed_name
   log "make"
-  make_tool $seed_name $make_j
+  make_tool $seed_name $make_j velveth
+  make_tool $seed_name $make_j velvetg
   link_from_stage $recipe ${install_files[@]}
   after_install $recipe
 }
