@@ -17,6 +17,7 @@ do_install()
   decompress_tool $tb_file $tb_type
   rm -f $tb_file
   cd $root_seed
+  make_tool $seed_name $make_j
   link_from_stage $root_seed ${install_files[@]} 
   after_install $recipe
 }
