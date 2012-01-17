@@ -14,6 +14,7 @@ do_install()
   log "make"
   make_tool $seed_name $make_j
   link_from_stage $recipe ${install_files[@]}
+  for_env "export SAMTOOLS='$LOCAL_DIR/samtools'"
   after_install $recipe
 }
 
