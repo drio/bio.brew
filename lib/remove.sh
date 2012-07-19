@@ -21,6 +21,8 @@ remove_recipe()
   rm -rf $TB_DIR/$recipe_name
   log "removing: $LOCAL_DIR/$recipe_name"
   rm -rf $LOCAL_DIR/$recipe_name
+  log "removing envs: $LOG_DIR/${recipe_name}*"
+  rm -f $LOG_DIR/${recipe_name}*
 }
 
 remove_recipe_using_make()
@@ -37,7 +39,7 @@ remove_from_stage()
 {
   local recipe_name=$1; shift
   local install_files=("$@")
-  for f in ${install_files[@]} 
+  for f in ${install_files[@]}
   do
     local bn=`basename $f`
     log "remove link from from staging area [$f]"
@@ -50,7 +52,7 @@ after_remove()
   local recipe_name=$1
   local lock_file="$LOG_DIR/$recipe_name.lock"
   local install_flag="$LOG_DIR/$recipe_name.installed"
- 
+
   log "recipe [$recipe_name] removed."
   log "removing lock. [$lock_file]"
   rm -f $lock_file

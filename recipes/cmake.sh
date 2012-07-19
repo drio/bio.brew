@@ -1,8 +1,9 @@
-local URL="http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p125.tar.gz"
-local tb_file=`basename $URL`
+local version=2.8.7
 local type="tar.gz"
-local seed_name=$(extract_tool_name $tb_file $type)
-local install_files=(bin/ruby bin/irb bin/gem bin/ri bin/rake)
+local URL="http://www.cmake.org/files/v2.8/cmake-${version}.${type}"
+local tb_file=`basename $URL`
+local seed_name="cmake-${version}"
+local install_files=(bin/cmake bin/cpack bin/ctest)
 
 do_install()
 {

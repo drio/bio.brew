@@ -1,5 +1,5 @@
 
-local version="1.55"
+local version="1.60"
 # Can anyone tell me how to programmatically download tarballs from sourceforge ?
 local URL="http://downloads.sourceforge.net/project/picard/picard-tools/${version}/picard-tools-${version}.zip?r=http%3A%2F%2Fsourceforge.net%2Fprojects%2Fpicard%2Ffiles%2Fpicard-tools%2F${version}%2Fpicard-tools-${version}.zip%2Fdownload&ts=1320169333&use_mirror=cdnetworks-us-2"
 local tb_file=`basename $URL`

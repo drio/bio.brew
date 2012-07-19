@@ -22,13 +22,13 @@ check_deps()
 {
   local list_deps=("$@")
   local not_installed=""
-  for f in ${list_deps[@]} 
+  for f in ${list_deps[@]}
   do
     local install_flag="$LOG_DIR/$f.installed"
     [ ! -f $install_flag ] && not_installed="$not_installed $f"
   done
   [ ".$not_installed" != "." ] && log "Install deps first:$not_installed" && exit 1
-  return 0 
+  return 0
 }
 
 check_if_installed()
@@ -80,13 +80,14 @@ make_tool()
   local seed_name=$1
   local make_j=$2
   local target=$3
+  local extras=$4
   [ ".$make_j" == "." ] && make_j=1
   local log_file=$LOG_DIR/${seed_name}.make.log.txt
   log "running make on tool [logging output: $log_file] [j: $make_j]"
   (
   export LIBRARY_PATH=$LOCAL_DIR/lib
   export CPATH=$LOCAL_DIR/include
-  make -j $make_j $target &> $log_file
+  make -j $make_j $extras $target &> $log_file
   )
 }
 
@@ -101,7 +102,7 @@ link_from_stage()
 {
   local seed_name=$1; shift
   local install_files=("$@")
-  for f in ${install_files[@]} 
+  for f in ${install_files[@]}
   do
     local bn=`basename $f`
     log "linking from staging area [$f]"
@@ -123,7 +124,7 @@ download()
   else
     log "downloading [$url]"
     curl --silent -L -O $url
-  fi 
+  fi
 }
 
 decompress_tool()
@@ -176,13 +177,13 @@ setup_cpan_config()
   cp_config="$cp_dir/MyConfig.pm"
 
   setup_cpan_policy
-  if [ -f $cp_config ] 
+  if [ -f $cp_config ]
   then
-    log "Cannot setup CPAN config. Already exists"  
+    log "Cannot setup CPAN config. Already exists"
   else
     log "Setting up CPAN config."
     mkdir -p $cp_dir
-    ( 
+    (
     cat<<-EOF
 \$CPAN::Config = {
   'auto_commit' => q[0],

@@ -1,8 +1,7 @@
-local URL="http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p125.tar.gz"
+local URL="http://go.googlecode.com/files/go1.0.2.linux-amd64.tar.gz"
 local tb_file=`basename $URL`
 local type="tar.gz"
-local seed_name=$(extract_tool_name $tb_file $type)
-local install_files=(bin/ruby bin/irb bin/gem bin/ri bin/rake)
+local seed_name=go
 
 do_install()
 {
@@ -11,10 +10,7 @@ do_install()
   download $URL $tb_file
   decompress_tool $tb_file $type
   cd $seed_name
-  configure_tool $seed_name
-  make_tool $seed_name $make_j
-  install_tool $seed_name
-  link_from_stage $seed_name ${install_files[@]}
+  for_env "export GOROOT=`pwd`;export PATH=\$PATH:`pwd`/bin"
   after_install $seed_name
 }
 

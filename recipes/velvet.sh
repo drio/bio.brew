@@ -12,8 +12,8 @@ do_install()
   git clone $URL &> $LOG_DIR/${seed_name}.git_clone.log.txt
   cd $seed_name
   log "make"
-  make_tool $seed_name $make_j velveth
-  make_tool $seed_name $make_j velvetg
+  make_tool $seed_name $make_j velveth 'MAXKMERLENGTH=97'
+  make_tool $seed_name $make_j velvetg 'MAXKMERLENGTH=97'
   link_from_stage $recipe ${install_files[@]}
   after_install $recipe
 }

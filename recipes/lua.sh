@@ -1,8 +1,8 @@
 
-local URL="http://www.lua.org/ftp/lua-5.2.0.tar.gz"
+local URL="http://www.lua.org/ftp/lua-5.1.4.tar.gz"
 local tb_file=`basename $URL`
 local type="tar.gz"
-local seed_name="lua-5.2.0"
+local seed_name="lua-5.1.4"
 local deps=()
 local install_files=(src/lua)
 
