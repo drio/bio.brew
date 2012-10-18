@@ -16,6 +16,7 @@ do_install()
   cd $seed_name
   make_tool $seed_name $make_j
   link_from_stage $seed_name ${install_files[@]}
+  for_env "export PERL5LIB=\$PERL5LIB:$LOCAL_DIR/$seed_name/perl"
   after_install $seed_name
 }
 
