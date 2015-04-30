@@ -19,14 +19,17 @@ Give it a try and make it better by improving the framework and adding more reci
 
 ## Install (without git)
 
+```sh
 $ # Download the master branch using curl
 $ # -L follow redirects; -s silent; -S show error message if fails; -f fail silently on server errors
 $ curl -LsSf http://github.com/drio/bio.brew/tarball/master | tar xvz -C. --strip 1
+```
+
 
 You probably want to add ./load_env in your shell's configuration file. If you use bash add
 this to your .bashrc:
 
-source /data/rogers/drio_scratch/bb/load_env    
+`source /data/rogers/drio_scratch/bb/load_env`
 
 That will set the proper path(s). Take a quick peek to load_env, it is a very small script.
 
@@ -44,6 +47,7 @@ use the jars as necessary.
 Here is a list of the recipes available (This is an old version, there are more 
 packages now):
 
+```
 $ ./bin/bb list
 - : ant                      :  java
 - : bfast                    :  
@@ -63,9 +67,11 @@ $ ./bin/bb list
 - : subversion-1.6.13        : 
 - : tmux-1.3                 :  libevent-1.4.14b-stable
 - : vim73                    :  
+```
 
 As you can see, I don't have any installed ('-'). I can now install something:
 
+```
 $ ./bin/bb -j8 install svn
 Sun Oct 31 11:19:38 CDT 2010 >> Installing recipe: svn
 Sun Oct 31 11:19:38 CDT 2010 >> recipe script found
@@ -83,6 +89,7 @@ Sun Oct 31 11:23:16 CDT 2010 >> touching install flag [/data/rogers/drio_scratch
 
 $ ls -acl ./local/bin/svn
 ./local/bin/svn
+```
 
 ## TODO
 
